@@ -1,0 +1,65 @@
+#include "mbed.h"
+#include "GPS.h"
+ 
+//Using MODGPS library
+GPS gps(NC, p25);
+#define PCBAUD 115200
+#define GPSRX p25
+#define GPSBAUD 9600
+//#define PPSPIN p29
+
+float windangle; //from windsensor code
+float pi=3.1415;
+
+float waypointLAT(1)=1.2; //insert waypoints here
+float waypointLON(1)=2.4;
+
+float waypointLAT(2)=2.3;
+float waypointLON(2)=6.7; //etc
+
+
+//Start of main code
+int main() {
+  
+   int i;
+   for (i=1; i<=50; i++)  //Number of waypoints
+   {
+  
+  
+double latitude = gps.latitude();
+double longitude = gps.longitude();
+   
+    while(longitude<waypointLAT(i)) {  
+        
+        bearing=atan2(((sin(waypointLON(i)-longitude))*cos(waypointLAT(i))),(cos(latitude)*sin(waypointLAT(i))-sin(latitude)*cos(waypointLAT(i))*cos((waypointLON(i)-longitude))));
+                
+        //Set rudder at angle of bearing (UPDATE)
+        //CODE HERE     
+                
+        //RUN Situation wind port side
+        if (windangle>pi/2 && windangle<=pi)
+        //code to put sail at 3pi/2 relative
+        
+        //RUN Situation wind starboard side
+        else if (windangle>pi && windangle<=3*pi/2)
+        //code to put sail at pi/2 relative
+        
+        //Upwind port side
+        else if (windangle>=pi/4 && windangle<=pi/2)
+        //code to move sail
+        
+        //Upwind starboard side
+        else if (windangle>=3*pi/4 && windangle<=7*pi/4)
+        //code to move sail
+        
+        //In Irons port side
+        else if (windangle>=0 && windangle<pi/4)
+        
+        //In Irons starboard side
+        else (windangle>7*pi/4 && windangle<2*pi)
+        //move rudder briefly?
+        
+        wait(6000)
+    }
+    
+}
