@@ -20,6 +20,7 @@ float waypointLON(2)=6.7; //etc
 
 //Start of main code
 int main() {
+while(1) {
   
    int i;
    for (i=1; i<=50; i++)  //Number of waypoints
@@ -62,4 +63,4 @@ double longitude = gps.longitude();
         wait(6000)
     }
     
-}
+}}
