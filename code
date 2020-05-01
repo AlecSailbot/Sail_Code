@@ -11,11 +11,11 @@ GPS gps(NC, p25);
 float windangle; //from windsensor code
 float pi=3.1415;
 
-float waypointLAT(1)=1.2; //insert waypoints here
-float waypointLON(1)=2.4;
+float waypointLAT(1)=38.9784; //insert waypoints here
+float waypointLON(1)=76.4922;
 
-float waypointLAT(2)=2.3;
-float waypointLON(2)=6.7; //etc
+float waypointLAT(2)=39.2648;
+float waypointLON(2)=75.3862; //etc
 
 
 //Start of main code
