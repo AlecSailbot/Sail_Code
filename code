@@ -51,15 +51,15 @@ double longitude = gps.longitude();
         
         //RUN Situation wind starboard side
         else if (windangle>pi && windangle<=3*pi/2)
-        //code to put sail at pi/2 relative
+        set sailstepper(pi/2)
         
         //Upwind port side
         else if (windangle>=pi/4 && windangle<=pi/2)
-        //code to move sail
+        set sailstepper(2.7925)
         
         //Upwind starboard side
         else if (windangle>=3*pi/4 && windangle<=7*pi/4)
-        //code to move sail
+        set sailstepper(3.4907)
         
         //In Irons port side
         else if (windangle>=0 && windangle<pi/4)
