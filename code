@@ -34,12 +34,20 @@ double longitude = gps.longitude();
         
         bearing=atan2(((sin(waypointLON(i)-longitude))*cos(waypointLAT(i))),(cos(latitude)*sin(waypointLAT(i))-sin(latitude)*cos(waypointLAT(i))*cos((waypointLON(i)-longitude))));
                 
-        //Set rudder at angle of bearing (UPDATE)
-        //CODE HERE     
+        if (currentheading<bearing)
+         set rudderstepper(pi/6)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
+         
+         else
+         set rudderstepper(pi/6)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
                 
         //RUN Situation wind port side
         if (windangle>pi/2 && windangle<=pi)
-        //code to put sail at 3pi/2 relative
+        set sailstepper(3*pi/2)
+        
         
         //RUN Situation wind starboard side
         else if (windangle>pi && windangle<=3*pi/2)
