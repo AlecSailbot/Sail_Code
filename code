@@ -63,11 +63,33 @@ double longitude = gps.longitude();
         
         //In Irons port side
         else if (windangle>=0 && windangle<pi/4)
+         while(windangle>=0 && windangle<pi/4)
+         {
+         set rudderstepper(currentheading+pi/4)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
+         wait(300) //wait five minutes
+          
+         set rudderstepper(currentheading-pi/4)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
+         wait(300) //wait five minutes
+         }
         
         //In Irons starboard side
         else (windangle>7*pi/4 && windangle<2*pi)
-        //move rudder briefly?
-        
+        while(windangle>7*pi/4 && windangle<2*pi)
+        {
+         set rudderstepper(currentheading+pi/4)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
+         wait(300) //wait five minutes
+          
+         set rudderstepper(currentheading-pi/4)
+         wait((currentheading-bearing)/15))
+         set rudderstepper(0)
+         wait(300) //wait five minutes
+        }
         wait(6000)
     }
     
