@@ -90,7 +90,7 @@ double longitude = gps.longitude();
          set rudderstepper(0)
          wait(300) //wait five minutes
         }
-        wait(6000)
+        wait(600)
     }
     
 }}
